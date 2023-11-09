@@ -63,7 +63,7 @@ export class FrameworkServiceImpl implements CsFrameworkService {
       }> {
         return this.getFrameworkConfig(frameworkId, frameworkConfig, formConfig).pipe(
             map((response: Array<any>) => {
-                return response.reduce((obj, item) => ({...obj, [item.key]: item}), {});
+                return response.reduce((obj, item) => ({...obj, [item.identifier]: item}), {});
             })
         );
     }
