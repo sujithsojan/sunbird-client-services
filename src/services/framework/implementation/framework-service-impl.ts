@@ -79,7 +79,7 @@ export class FrameworkServiceImpl implements CsFrameworkService {
 
      /** @internal */
      transformCategoriesToConfig(categories: FrameworkCategory[]): FrameworkConfig[] {
-        return categories.map(({ index, code, name }) => ({ code, label: name, identifier: `fwCategory${index}`, index: index - 1, placeHolder: `Select ${code}` }))
+        return categories.map(({ index, code, name }) => ({ code: code, label: name, identifier: `fwCategory${index}`, index: index, placeHolder: `Select ${code}` }))
     }
 }
 
