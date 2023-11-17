@@ -24,14 +24,13 @@ export class FrameworkServiceImpl implements CsFrameworkService {
             .withType(CsHttpRequestType.GET)
             .withPath((config ? config.apiPath : this.apiPath) + '/read/' + id)
             .withParameters({
-                ...(options ? { categories: options.requiredCategories.join(',') } : {})
+                ...(options?.requiredCategories.length ? { categories: options.requiredCategories.join(',') } : {})
             })
             .withBearerToken(true)
             .build();
 
         return this.httpService.fetch<{ result: { framework: Framework } }>(apiRequest).pipe(
             map((response) => {
-                console.log("getFramework:::::"+JSON.stringify(response));
                 return response.body.result.framework;
             })
         );
@@ -79,6 +78,7 @@ export class FrameworkServiceImpl implements CsFrameworkService {
 
      /** @internal */
      transformCategoriesToConfig(categories: FrameworkCategory[]): FrameworkConfig[] {
+         
         return categories.map(({ index, code, name }) => ({ code: code, label: name, identifier: `fwCategory${index}`, index: index, placeHolder: `Select ${code}` }))
     }
 }
