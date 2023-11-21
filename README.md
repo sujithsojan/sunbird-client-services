@@ -16,26 +16,43 @@ The library is grouped into Modules and SubModules as shown below -
 
 ```
 @project-sunbird/client-services
-├── /core
-│   └── /http-service
-│       └── /utilities
-│           └── /interceptors
-├── /models
-│   ├── /channel
-│   ├── /content
-│   ├── /course
-│   ├── /device
-│   ├── /faq
-│   ├── /form
-│   ├── /group
-│   ├── /organisation
-│   ├── /page
-│   └── /user
-└── /services
-    ├── /content
-    │   └── /utilities
-    │       └── /content-group-generator
-    └── /group
+├── blocs
+    │   └── group-addable
+    ├── core
+    │   └── http-service
+    ├── models
+    │   ├── certificate
+    │   ├── channel
+    │   ├── content
+    │   ├── course
+    │   ├── device
+    │   ├── faq
+    │   ├── form
+    │   ├── group
+    │   ├── location
+    │   ├── notification
+    │   ├── organisation
+    │   ├── page
+    │   └── user
+    ├── services
+    │   ├── certificate
+    │   ├── content
+    │   ├── course
+    │   ├── discussion
+    │   ├── form
+    │   ├── framework
+    │   ├── group
+    │   ├── location
+    │   ├── notification
+    │   ├── system-settings
+    │   └── user
+    ├── telemetry
+    │   ├── errors
+    │   ├── implementation
+    │   └── interface
+    └── utilities
+        ├── aggregator
+        └── certificate
 ```
 
 The public facing API is prefixed with 'Cs' namespace, as in -
