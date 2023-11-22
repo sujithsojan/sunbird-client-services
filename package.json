@@ -17,15 +17,15 @@
   },
   "dependencies": {
     "@project-sunbird/telemetry-sdk": "0.1.0",
-    "inversify": "5.0.1",
+    "inversify": "5.1.1",
     "dayjs": "1.9.8",
     "jsonld": "5.2.0",
     "jsonld-signatures": "7.0.0",
-    "jszip": "3.7.1",
-    "node-fetch": "2.6.7",
+    "jszip": "3.10.1",
+    "node-fetch": "2.7.0",
     "qs": "6.9.7",
     "reflect-metadata": "0.1.13",
-    "whatwg-fetch": "3.6.2"
+    "whatwg-fetch": "3.6.19"
   },
   "author": "",
   "license": "MIT",
