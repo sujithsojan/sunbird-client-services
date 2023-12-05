@@ -1,6 +1,6 @@
 {
   "name": "@project-sunbird/client-services",
-  "version": "7.0.3",
+  "version": "7.0.4",
   "description": "Type definitions and models for Sunbird platform clients",
   "main": "dist/index.js",
   "module": "src/index.ts",
