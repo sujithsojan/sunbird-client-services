@@ -20,7 +20,7 @@
     "inversify": "5.1.1",
     "dayjs": "1.9.8",
     "jsonld": "5.2.0",
-    "jsonld-signatures": "7.0.0",
+    "jsonld-signatures": "8.0.0",
     "jszip": "3.10.1",
     "node-fetch": "2.7.0",
     "qs": "6.9.7",
