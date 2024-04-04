@@ -1,14 +1,11 @@
-
 import jsigs from 'jsonld-signatures';
 import {contexts} from 'security-context';
-import {RSAKeyPair, Ed25519KeyPair} from 'crypto-ld';
 import documentLoaders from 'jsonld';
 import {credentialsv1} from './credentials';
 import { CsHttpRequestType, CsHttpService, CsRequest } from '../../core/http-service/interface';
 import { catchError, map } from "rxjs/operators";
 import { InjectionTokens } from '../../injection-tokens';
 import { Container } from 'inversify';
-
 
 const CERTIFICATE_CONTROLLER_ID =  'https://sunbird.org/';
 const CERTIFICATE_DID =  'did:india';
@@ -34,9 +31,9 @@ export class CertificateVerifier {
             const publicKey = {
                 '@context': jsigs.SECURITY_CONTEXT_URL,
                 id: CERTIFICATE_DID,
-                type: 'RsaVerificationKey2018',
+                type: 'Ed25519VerificationKey2020', // Changed to use Ed25519VerificationKey2020
                 controller: CERTIFICATE_CONTROLLER_ID,
-                publicKeyPem: this.publicKey
+                publicKeyBase58: this.publicKey // Assuming the publicKey is in Base58 format
             };
             const controller = {
                 '@context': jsigs.SECURITY_CONTEXT_URL,
@@ -45,10 +42,10 @@ export class CertificateVerifier {
                 // this authorizes this key to be used for making assertions
                 assertionMethod: [publicKey.id]
             };
-            const key = new RSAKeyPair({...publicKey});
-            const {RsaSignature2018} = jsigs.suites;
+            const suite = new jsigs.suites.Ed25519Signature2020({});
+
             result = await jsigs.verify(signedJSON, {
-                suite: new RsaSignature2018({key}),
+                suite,
                 purpose: new AssertionProofPurpose({controller}),
                 documentLoader: this.customLoader,
                 compactProof: false
